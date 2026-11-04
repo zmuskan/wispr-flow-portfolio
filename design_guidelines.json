@@ -1,0 +1,351 @@
+{
+  "project_title": "SIX-SCENE INTERACTIVE SCRAPBOOK PORTFOLIO — Zaiba Muskan D.M. (Wispr Flow Hiring Challenge)",
+  "design_philosophy": {
+    "core_aesthetic": "Warm espresso scrapbook × editorial portfolio × handmade creative journal",
+    "tone": "Personal, warm, artistic, slightly imperfect, editorial, tactile, cinematic, elegant, technically polished",
+    "forbidden_patterns": [
+      "No generic AI-template feel",
+      "No purple gradients or #7351B7",
+      "No glassmorphism or muddy gray transparency",
+      "No neon lighting or cyberpunk glows",
+      "No childish or juvenile clipart",
+      "No standard long single-page infinite scrolling (must use full-screen scene replacement)",
+      "No Inter font for main or sub headlines",
+      "No raw input tags or unstyled native select elements"
+    ]
+  },
+  "color_palette": {
+    "css_tokens": {
+      "--bg-espresso": "#29150F",
+      "--panel-deep-chocolate": "#1B100D",
+      "--dark-coffee": "#4A291C",
+      "--paper-warm-parchment": "#F1D9B5",
+      "--paper-aged": "#E5C69B",
+      "--text-cream": "#FFF2DB",
+      "--accent-dusty-rose": "#D98B9C",
+      "--highlight-soft-pink": "#F0A6B8",
+      "--detail-muted-gold": "#C9A36B",
+      "--text-ink": "#241712"
+    },
+    "semantic_usage": {
+      "main_background": "Espresso #29150F with shared leather/suede texture overlay",
+      "dark_panels": "Deep Chocolate #1B100D and Coffee Brown #4A291C",
+      "paper_cards": "Warm Parchment #F1D9B5 and Aged Paper #E5C69B",
+      "light_text": "Cream #FFF2DB",
+      "accent_touches": "Dusty Rose #D98B9C",
+      "button_highlights": "Soft Pink #F0A6B8 with Ink #241712 text",
+      "small_details": "Muted Gold #C9A36B for tape edges, subtle stars, icon accents",
+      "parchment_text": "Ink #241712"
+    }
+  },
+  "typography": {
+    "families": {
+      "main_editorial_headings": "'Cormorant Garamond', Georgia, serif",
+      "secondary_serif_headings": "'Playfair Display', Georgia, serif",
+      "body_ui": "'Manrope', 'Inter', -apple-system, sans-serif",
+      "handwritten_notes": "'Caveat', cursive, handwriting"
+    },
+    "hierarchy": {
+      "scene_heading": {
+        "desktop": "clamp(34px, 4vw, 62px)",
+        "mobile": "clamp(28px, 6vw, 42px)",
+        "font_family": "Cormorant Garamond",
+        "font_style": "italic",
+        "weight": "600",
+        "line_height": "1.1",
+        "letter_spacing": "-0.02em"
+      },
+      "secondary_heading": {
+        "desktop": "clamp(26px, 2.5vw, 38px)",
+        "mobile": "clamp(20px, 4.5vw, 30px)",
+        "font_family": "Playfair Display",
+        "weight": "600",
+        "line_height": "1.2"
+      },
+      "card_heading": {
+        "desktop": "clamp(18px, 1.5vw, 22px)",
+        "mobile": "clamp(16px, 3.5vw, 19px)",
+        "font_family": "Playfair Display",
+        "weight": "600",
+        "line_height": "1.25"
+      },
+      "body_text": {
+        "desktop": "clamp(14px, 1.1vw, 16px)",
+        "mobile": "clamp(13px, 3vw, 15px)",
+        "font_family": "Manrope",
+        "weight": "400",
+        "line_height": "1.6"
+      },
+      "metadata": {
+        "desktop": "11px to 12px",
+        "mobile": "10px to 11px",
+        "font_family": "Manrope",
+        "weight": "500",
+        "letter_spacing": "0.08em",
+        "text_transform": "uppercase"
+      },
+      "nav_labels": {
+        "desktop": "12px to 14px",
+        "mobile": "12px",
+        "font_family": "Manrope",
+        "weight": "500",
+        "letter_spacing": "0.05em"
+      },
+      "handwritten_notes": {
+        "desktop": "clamp(16px, 1.4vw, 20px)",
+        "mobile": "15px",
+        "font_family": "Caveat",
+        "weight": "700"
+      }
+    }
+  },
+  "scrapbook_tactile_language": {
+    "torn_paper_edges": {
+      "css_technique": "mask-image: radial-gradient / polygon clip-path with subtle irregular zig-zag (e.g., polygon(0% 0%, 100% 0%, 98% 97%, 95% 100%, 90% 98%, 82% 100%, 75% 97%, 68% 99%, 60% 96%, 52% 100%, 45% 97%, 38% 99%, 30% 96%, 22% 100%, 15% 97%, 8% 99%, 0% 96%)) or SVG path mask filter for warm parchment elements",
+      "paper_texture_overlay": "repeating radial dot / SVG feTurbulence noise filter at opacity 0.04-0.07"
+    },
+    "masking_tape_strips": {
+      "styling": "Semi-transparent warm beige/muted gold (#C9A36B / #E5C69B with opacity 0.75-0.85), subtle drop-shadow(0 1px 2px rgba(0,0,0,0.25)), rotated -3deg to 4deg, placed on corners or top edges of parchment cards",
+      "border_edges": "Jagged/crinkled end cuts using clip-path: polygon(4% 0%, 96% 0%, 100% 50%, 96% 100%, 4% 100%, 0% 50%)"
+    },
+    "card_rotations": {
+      "desktop": "Randomized subtle rotation range -2.2deg to +2.2deg across cards to mimic hand-pinned album elements",
+      "mobile": "-0.5deg to +0.5deg for tight screen alignment and tap accuracy"
+    },
+    "shadows": {
+      "warm_parchment_shadow": "box-shadow: 0 10px 30px -5px rgba(27, 16, 13, 0.45), 0 4px 12px -2px rgba(41, 21, 15, 0.3)",
+      "hover_shadow": "box-shadow: 0 18px 40px -6px rgba(27, 16, 13, 0.6), 0 8px 20px -4px rgba(217, 139, 156, 0.25)",
+      "card_hover_transform": "transform: translateY(-4px) rotate(0deg) scale(1.015); transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1)"
+    },
+    "doodles_and_connectors": {
+      "arrows": "Hand-drawn SVG path arrows with soft pink stroke (#D98B9C / #F0A6B8) and stroke-dasharray animation",
+      "dotted_connector_lines": "SVG dash array lines (dash: 4 4) connecting experience cards in Scene 2 and build stages in Scene 4",
+      "underlines": "Pink organic hand-drawn underline SVG under key section titles and active nav items",
+      "stars_and_accents": "Small 4-point doodle stars and handwritten circle annotations in muted gold (#C9A36B) or dusty rose (#D98B9C)"
+    }
+  },
+  "shared_background": {
+    "base_layer": "Single fixed container sharing an espresso suede/leather texture background image across all six scenes",
+    "image_url": "https://images.unsplash.com/photo-1571829604981-ea159f94e5ad?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDF8MHwxfHNlYXJjaHwxfHxsZWF0aGVyJTIwZGFyayUyMHRleHR1cmUlMjBiYWNrZ3JvdW5kJTIwZXNwcmVzc28lMjB3YXJtfGVufDB8fHx8MTc5MzcyMTgyNHww&ixlib=rb-4.1.0&q=85",
+    "css_properties": {
+      "background_size": "cover",
+      "background_position": "center center",
+      "background_repeat": "no-repeat",
+      "overlay": "linear-gradient(180deg, rgba(41, 21, 15, 0.82) 0%, rgba(27, 16, 13, 0.88) 100%) for high readability",
+      "vignette": "radial-gradient(ellipse at center, transparent 40%, rgba(15, 8, 5, 0.7) 100%)"
+    }
+  },
+  "navigation_bar": {
+    "position": "Fixed top-0 left-0 right-0 z-50 h-16 sm:h-20 px-4 sm:px-8 lg:px-12 backdrop-blur-md bg-[#29150F]/70 border-b border-[#4A291C]/50 flex items-center justify-between",
+    "logo": {
+      "text": "Zaiba",
+      "font": "Caveat",
+      "size": "28px to 34px",
+      "color": "#FFF2DB",
+      "handwritten_accent": "Dusty rose doodle star next to name"
+    },
+    "desktop_links": [
+      { "id": 0, "label": "Home", "target_scene": 1 },
+      { "id": 1, "label": "Story", "target_scene": 2 },
+      { "id": 2, "label": "Toolkit", "target_scene": 3 },
+      { "id": 3, "label": "Wispr Flow", "target_scene": 4 },
+      { "id": 4, "label": "Build", "target_scene": 5 },
+      { "id": 5, "label": "Next", "target_scene": 6 }
+    ],
+    "link_styling": {
+      "active": "text-[#FFF2DB] font-semibold relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:right-0 after:h-[2px] after:bg-[#D98B9C] after:rounded-full",
+      "inactive": "text-[#FFF2DB]/70 hover:text-[#F0A6B8] transition-colors duration-200"
+    },
+    "cta_button": {
+      "label": "Let's Talk",
+      "bg": "#F0A6B8",
+      "text_color": "#241712",
+      "border_radius": "9999px (full pill)",
+      "hover": "bg-[#D98B9C] text-[#FFF2DB] shadow-lg shadow-[#D98B9C]/20 transform scale-105"
+    }
+  },
+  "scene_manager_and_transitions": {
+    "transition_duration": "550ms to 700ms",
+    "easing": "cubic-bezier(0.16, 1, 0.3, 1)",
+    "animation_properties": {
+      "exit": "opacity 1 -> 0, transform: translateY(-24px) scale(0.985)",
+      "enter": "opacity 0 -> 1, transform: translateY(24px) scale(0.985) -> translateY(0) scale(1.0)"
+    },
+    "navigation_controls": {
+      "mouse_wheel": "One full gesture = increment/decrement scene. Debounced with a 750ms lock-out timer to prevent accidental double scene skews",
+      "keyboard_navigation": "ArrowUp / ArrowLeft -> Prev Scene; ArrowDown / ArrowRight / Space -> Next Scene; Home -> Scene 1; End -> Scene 6",
+      "touch_gestures": "Mobile vertical swipe listener with threshold > 45px",
+      "scene_indicator": "Fixed right side vertical dot navigation (6 subtle parchment dots with active dusty pink highlight ring)"
+    }
+  },
+  "per_scene_specifications": {
+    "scene_1_home": {
+      "title": "Home — Curious. Experimental. A Little Restless.",
+      "layout_1440x900": "3-Column Horizontal Grid (35% Left Copy / 40% Center Hero Media / 25% Right Parchment Note)",
+      "layout_390x844": "Single Column Vertical Stack (Hero Copy -> Center Media Card -> Parchment Note)",
+      "components": {
+        "left_column": {
+          "subheading": "ZAIBA MUSKAN D.M. // WISPR FLOW HIRING CHALLENGE",
+          "heading": "Curious. Experimental. A Little Restless.",
+          "copy": "I design and build software at the intersection of voice, AI intelligence, and human physical touch. Exploring how everyday moments feel when friction melts away.",
+          "cta_button": {
+            "text": "Explore My Journal",
+            "bg": "#F0A6B8",
+            "text": "#241712",
+            "icon": "ArrowRight"
+          }
+        },
+        "center_hero": {
+          "container": "Parchment border frame with brass pin detail, subtle -1.5deg tilt, masking tape top right",
+          "media_type": "Hero video / interactive desk asset preview",
+          "poster_image": "https://images.unsplash.com/photo-1505330622279-bf7d7fc918f4?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2OTF8MHwxfHNlYXJjaHw0fHxjcmVhdGl2ZSUyMGRlc2lnbmVyJTIwZGVzayUyMGFlc3RoZXRpYyUyMGxhcHRvcCUyMHZpbnRhZ2UlMjBub3RlYm9va3xlbnwwfHx8fDE3OTM3MjE4Mjd8MA&ixlib=rb-4.1.0&q=85",
+          "caption": "Zaiba's Studio & Prototype Workbench (2026)"
+        },
+        "right_column": {
+          "card_type": "Parchment Note Card (#F1D9B5)",
+          "rotation": "+2deg",
+          "title": "On my mind:",
+          "checklist_items": [
+            "✦ Voice as the primary UI primitive",
+            "✦ Zero-friction ambient captures",
+            "✦ Designing tactile digital scrapbooks",
+            "✦ Building products that feel alive"
+          ]
+        }
+      }
+    },
+    "scene_2_the_making_of_me": {
+      "title": "Scene 2 — The Making of Me",
+      "layout_1440x900": "Title top left + 9 Parchment Experience Cards arranged in 2 staggered rows (Row 1: 5 cards / Row 2: 4 cards) connected by subtle dotted SVG paths and masking tape",
+      "layout_390x844": "Vertical scrollable parchment feed of 9 cards with compact padding and ±0.5deg subtle tilt",
+      "cards": [
+        { "id": 1, "year": "2021", "title": "First Lines of Code", "desc": "Fell in love with web interaction design.", "tape_color": "gold" },
+        { "id": 2, "year": "2022", "title": "Design Systems", "desc": "Crafted component architectures for high scale.", "tape_color": "rose" },
+        { "id": 3, "year": "2023", "title": "AI Explorations", "desc": "Integrated LLMs into intuitive user interfaces.", "tape_color": "parchment" },
+        { "id": 4, "year": "2024", "title": "Voice Interfaces", "desc": "Pioneered push-to-talk ambient web tools.", "tape_color": "rose" },
+        { "id": 5, "year": "2024", "title": "Tactile Web", "desc": "Merged skeuomorphic physical textures with modern UX.", "tape_color": "gold" },
+        { "id": 6, "year": "2025", "title": "Emergent UX", "desc": "Building tools that adapt dynamically to user intent.", "tape_color": "parchment" },
+        { "id": 7, "year": "2025", "title": "Wispr Flow Immersion", "desc": "Studied voice-first speed and context switching.", "tape_color": "rose" },
+        { "id": 8, "year": "2026", "title": "Full-Stack Crafting", "desc": "Mastered React, FastAPI, and fluid web animations.", "tape_color": "gold" },
+        { "id": 9, "year": "PRESENT", "title": "Ready for What's Next", "desc": "Joining teams building radical new interfaces.", "tape_color": "rose" }
+      ]
+    },
+    "scene_3_toolkit_and_learning_journey": {
+      "title": "Scene 3 — My Toolkit & Learning Journey",
+      "layout_1440x900": "Asymmetric 2-Column Split + Wide Bottom Panel. Left: Section Title & Intro; Right: 6 Tech Categories Parchment Grid; Bottom: Wide Parchment Panel with 3 Columns (Completed / In Progress / Familiar With)",
+      "layout_390x844": "Stacked Vertical Scroll: Title -> Tech Category Grid -> 3-Column Courses Accordion",
+      "tech_categories": [
+        { "category": "Frontend Craft", "skills": ["React 19", "Tailwind CSS", "Framer Motion", "Canvas/SVG"] },
+        { "category": "Voice & Audio", "skills": ["Web Audio API", "Whisper STT", "Speech Recognition", "Waveform Synthesis"] },
+        { "category": "AI & Prompting", "skills": ["LLM Workflows", "LangChain", "Vector Embeddings", "Context Parsing"] },
+        { "category": "Backend & APIs", "skills": ["FastAPI", "Python", "Node.js", "REST/WebSockets"] },
+        { "category": "UI/UX & Design", "skills": ["Figma", "Design Systems", "Micro-Interactions", "Typography"] },
+        { "category": "Tooling", "skills": ["Git", "Vite", "Yarn", "Performance Profiling"] }
+      ],
+      "courses_three_columns": {
+        "completed": ["Advanced React Patterns", "Voice Interface Architecture", "Typography Masterclass"],
+        "in_progress": ["Wispr Flow Contextual Prompting", "WebGL Shaders for Web"],
+        "familiar_with": ["Rust Basics", "Core ML On-Device Models"]
+      }
+    },
+    "scene_4_building_this_with_my_voice": {
+      "title": "Scene 4 — Building This With My Voice (Wispr Flow Feature)",
+      "layout_1440x900": "Left Column (50%): 3-Stage Build Log Cards linked by animated arrows: [1. Spoken Prompt + Waveform] -> [2. Wispr Flow Output Typing Card] -> [3. Emergent Output + Pink Handwritten Correction Note]. Right Column (50%): Pink Torn-Paper Card 'Everyday Moments, Smoother with Voice' + Interactive WhatsApp-Style Phone Demo + 4 Small Use-Case Cards",
+      "layout_390x844": "Stacked sequence with interactive tab toggle between 'Build Log Pipeline' and 'Phone Voice Demo'",
+      "components": {
+        "waveform_animator": "CSS keyframe bar height oscillation (8 vertical bars animating 20% to 100% height)",
+        "wispr_output_card": "Typewriter text simulation showing raw spoken input converting to structured clean code/copy instantly",
+        "handwritten_correction": "Caveat font pink note (#D98B9C) tilted -3deg: 'Refined in 0.4 seconds via Wispr Flow engine!'",
+        "phone_mockup": {
+          "frame": "Deep Chocolate (#1B100D) phone shell with rounded corner bezel",
+          "screen": "WhatsApp-style voice note transcript with play button, audio waveform, and instant polished reply"
+        },
+        "use_case_cards": [
+          "1. Instant Code Snippets",
+          "2. Hands-Free Design Critiques",
+          "3. Voice Micro-Journaling",
+          "4. Frictionless Email Polishing"
+        ]
+      }
+    },
+    "scene_5_things_ive_built": {
+      "title": "Scene 5 — Things I've Built",
+      "layout_1440x900": "Left Side: 4 Interactive Parchment Project Cards in a 2x2 Bento Grid with hover preview images; Right Side: Vertical Parchment Paper Scrapbook Note 'What I Learned' with handwritten key insights",
+      "layout_390x844": "Vertical Carousel / Cards Stack with swipeable project cards and collapsible 'What I Learned' note",
+      "projects": [
+        {
+          "title": "Wispr Canvas",
+          "tag": "Voice UI / React",
+          "desc": "An ambient desktop canvas powered by spoken intent and real-time layout generation.",
+          "image": "https://images.unsplash.com/photo-1683921045461-b8dc5ad37740?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2OTF8MHwxfHNlYXJjaHwzfHxjcmVhdGl2ZSUyMGRlc2lnbmVyJTIwZGVzayUyMGFlc3RoZXRpYyUyMGxhcHRvcCUyMHZpbnRhZ2UlMjBub3RlYm9va3xlbnwwfHx8fDE3OTM3MjE4Mjd8MA&ixlib=rb-4.1.0&q=85"
+        },
+        {
+          "title": "Tactile Journal",
+          "tag": "Skeuomorphic Web",
+          "desc": "A physical scrapbook experience translated into WebGL and CSS paper physics.",
+          "image": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2OTF8MHwxfHNlYXJjaHwyfHxjcmVhdGl2ZSUyMGRlc2lnbmVyJTIwZGVzayUyMGFlc3RoZXRpYyUyMGxhcHRvcCUyMHZpbnRhZ2UlMjBub3RlYm9va3xlbnwwfHx8fDE3OTM3MjE4Mjd8MA&ixlib=rb-4.1.0&q=85"
+        },
+        {
+          "title": "Flow Notes",
+          "tag": "AI Intelligence",
+          "desc": "Zero-friction audio logger converting unstructured thoughts into actionable specs.",
+          "image": "https://images.unsplash.com/photo-1668608321326-5e49742591ad?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2OTF8MHwxfHNlYXJjaHwxfHxjcmVhdGl2ZSUyMGRlc2lnbmVyJTIwZGVzayUyMGFlc3RoZXRpYyUyMGxhcHRvcCUyMHZpbnRhZ2UlMjBub3RlYm9va3xlbnwwfHx8fDE3OTM3MjE4Mjd8MA&ixlib=rb-4.1.0&q=85"
+        },
+        {
+          "title": "Editorial Grid",
+          "tag": "Typography",
+          "desc": "High-fashion Swiss layout generator with dynamic font weight contrast.",
+          "image": "https://images.unsplash.com/photo-1550684376-efcbd6e3f031?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDF8MHwxfHNlYXJjaHw0fHxsZWF0aGVyJTIwZGFyayUyMHRleHR1cmUlMjBiYWNrZ3JvdW5kJTIwZXNwcmVzc28lMjB3YXJtfGVufDB8fHx8MTc5MzcyMTgyNHww&ixlib=rb-4.1.0&q=85"
+        }
+      ],
+      "right_note_what_i_learned": {
+        "title": "What I Learned:",
+        "handwritten_items": [
+          "✎ Great tools get out of the way of human velocity.",
+          "✎ Voice editing requires forgiving, non-destructive UX.",
+          "✎ Tactile visual warmth builds emotional trust with users."
+        ]
+      }
+    },
+    "scene_6_whats_next": {
+      "title": "Scene 6 — What's Next?",
+      "layout_1440x900": "Full-bleed Cinematic Overlay over dark suede bg. Left Side (40%): Scrapbook Checklist parchment note; Right Side (60%): Large Editorial Heading ('Let's Build the Future of Voice Together') + Copy + Soft Pink 'Download Résumé' CTA + Row of Social Icons",
+      "layout_390x844": "Centered Vertical Call-To-Action Layout with full touch target buttons (min 48px height)",
+      "components": {
+        "left_checklist": {
+          "title": "Looking to:",
+          "items": [
+            "✔ Join Wispr Flow full-time",
+            "✔ Collaborate on voice-first tools",
+            "✔ Build expressive interactive web apps"
+          ]
+        },
+        "right_hero": {
+          "heading": "Let's Build the Future of Voice Together.",
+          "subheading": "Available for product engineering & design roles starting immediately.",
+          "download_cta": {
+            "label": "Download Résumé",
+            "bg": "#F0A6B8",
+            "text": "#241712",
+            "icon": "Download"
+          },
+          "social_links": [
+            { "platform": "GitHub", "url": "#", "icon": "Github" },
+            { "platform": "LinkedIn", "url": "#", "icon": "Linkedin" },
+            { "platform": "Twitter / X", "url": "#", "icon": "Twitter" },
+            { "platform": "Email", "url": "mailto:zaiba@example.com", "icon": "Mail" }
+          ]
+        }
+      }
+    }
+  },
+  "general_ui_ux_guidelines": {
+    "testing_attribute_requirement": "EVERY interactive element (buttons, links, inputs, cards, nav items, tabs) MUST include a kebab-case role-based data-testid attribute. Examples: data-testid=\"nav-link-home\", data-testid=\"cta-lets-talk-button\", data-testid=\"scene-2-card-1\", data-testid=\"download-resume-button\"",
+    "file_extension_rule": "The project uses JavaScript (.js / .jsx) components, NOT TypeScript (.tsx) files. Ensure guidelines reference .js syntax.",
+    "accessibility": {
+      "apca_wcag_compliance": "All parchment text uses Ink #241712 on Parchment #F1D9B5 (contrast ratio > 11:1). All dark panel text uses Cream #FFF2DB on Dark Coffee #4A291C (contrast ratio > 9.5:1).",
+      "touch_targets": "Minimum touch target size of 44px x 44px on mobile viewports for all buttons, dots, and links.",
+      "reduced_motion": "Respect prefers-reduced-motion media query by disabling card floating tilts and instant scene jump without transition lag."
+    }
+  }
+}

@@ -1,0 +1,306 @@
+export const SCENE_NAMES = ["Home", "Story", "Toolkit", "Wispr Flow", "Build", "Next"];
+
+export const HOME = {
+  headingLines: ["Zaiba Muskan", "D.M."],
+  role: "SOFTWARE · DATA · APPLIED AI",
+  copy: "I build data-driven applications that turn complex information into useful decisions.",
+  cta: "Explore My World",
+  note: {
+    title: "On my mind:",
+    items: [
+      "Build something useful.",
+      "Create freely.",
+      "Grow my skills.",
+      "Make an impact.",
+      "Be really successful.",
+    ],
+  },
+};
+
+export const STORY = {
+  heading: "The Making of Me",
+  subtitle: "A non-linear collection of things I've studied, made, joined and cared about.",
+  cards: [
+    { id: "chemical", title: "Chemical Engineering", desc: "Labs, experiments and a foundation in problem-solving." },
+    { id: "content", title: "Content Creation", desc: "Telling stories, creating content and building an audience." },
+    { id: "cpa", title: "DSCE CPA Content Team", desc: "Campus content, events and student stories." },
+    { id: "iedc", title: "IEDC Content Work", desc: "Tech, innovation and the campus startup ecosystem." },
+    { id: "under25", title: "Under 25 Team", desc: "Creating, collaborating and working with an amazing student community." },
+    { id: "data", title: "Data & Applied AI", desc: "Currently building — from data pipelines to ML and real-world projects." },
+    { id: "social", title: "Social Service & Gopal's Run to Heal Marathon", desc: "Giving back, volunteering and being part of impactful initiatives." },
+    { id: "candle", title: "Candle Making", desc: "Hand-poured candles, fragrances and creative batches." },
+    { id: "bracelet", title: "Bracelet Making", desc: "Small, handmade pieces that keep my creativity alive." },
+  ],
+};
+
+export const TOOLKIT = {
+  heading: "My Toolkit & Learning Journey",
+  copy: "I work across software, data and applied AI — combining programming, databases, backend development, analytical methods and AI-assisted workflows to build practical applications.",
+  cats: [
+    {
+      icon: "code",
+      title: "01 — Programming & Data",
+      featured: false,
+      items: [
+        { n: "Python", s: "python" },
+        { n: "SQL", i: "database" },
+        { n: "JavaScript", s: "javascript" },
+        { n: "TypeScript", s: "typescript" },
+        { n: "NumPy", s: "numpy" },
+        { n: "Pandas", s: "pandas" },
+        { n: "scikit-learn", s: "scikitlearn" },
+      ],
+    },
+    {
+      icon: "workflow",
+      title: "02 — Backend Engineering & APIs",
+      featured: false,
+      items: [
+        { n: "FastAPI", s: "fastapi" },
+        { n: "Flask", s: "flask" },
+        { n: "REST APIs" },
+        { n: "Pydantic", s: "pydantic" },
+        { n: "SQLAlchemy", s: "sqlalchemy" },
+        { n: "BeautifulSoup" },
+        { n: "Trafilatura" },
+      ],
+    },
+    {
+      icon: "database",
+      title: "03 — Databases & Geospatial Systems",
+      featured: false,
+      items: [
+        { n: "PostgreSQL", s: "postgresql" },
+        { n: "Supabase", s: "supabase" },
+        { n: "PostGIS" },
+        { n: "Database design" },
+        { n: "Data modelling" },
+        { n: "Relational databases" },
+      ],
+    },
+    {
+      icon: "app",
+      title: "04 — Frontend & Application Development",
+      featured: false,
+      items: [
+        { n: "React", s: "react" },
+        { n: "TypeScript", s: "typescript" },
+        { n: "Vite", s: "vite" },
+        { n: "Tailwind CSS", s: "tailwindcss" },
+        { n: "Zustand" },
+        { n: "Axios", s: "axios" },
+        { n: "TanStack Router" },
+        { n: "Streamlit", s: "streamlit" },
+      ],
+    },
+    {
+      icon: "network",
+      title: "05 — Data Analytics & Engineering",
+      featured: false,
+      items: [
+        { n: "Data pipelines" },
+        { n: "ETL concepts" },
+        { n: "Data cleaning" },
+        { n: "Exploratory Data Analysis" },
+        { n: "Feature engineering" },
+        { n: "Statistical analysis" },
+        { n: "Data visualisation" },
+        { n: "Recommendation systems" },
+        { n: "Ranking and scoring systems" },
+        { n: "Workflow automation" },
+      ],
+    },
+    {
+      icon: "sparkles",
+      title: "06 — Machine Learning & Applied AI",
+      featured: false,
+      items: [
+        { n: "Machine learning workflows" },
+        { n: "scikit-learn", s: "scikitlearn" },
+        { n: "Retrieval-Augmented Generation (RAG)" },
+        { n: "Sentence Transformers" },
+        { n: "FAISS" },
+        { n: "LangChain", s: "langchain" },
+        { n: "Ollama" },
+        { n: "Llama 3" },
+      ],
+    },
+    {
+      icon: "sparkles",
+      title: "07 — Generative AI & AI Development Tools",
+      featured: true,
+      items: [
+        { n: "ChatGPT" },
+        { n: "OpenAI", s: "openai" },
+        { n: "OpenAI API", s: "openai" },
+        { n: "Prompt Engineering" },
+        { n: "Google Gemini" },
+        { n: "Gemini API" },
+        { n: "Claude" },
+        { n: "Claude Code" },
+        { n: "GitHub Copilot", s: "githubcopilot" },
+        { n: "AI-assisted coding" },
+        { n: "LLM-assisted development" },
+        { n: "Prompt-driven prototyping" },
+        { n: "AI integration workflows" },
+      ],
+    },
+    {
+      icon: "workflow",
+      title: "08 — Cloud, Deployment & Developer Tools",
+      featured: false,
+      items: [
+        { n: "Docker", s: "docker" },
+        { n: "Git", s: "git" },
+        { n: "GitHub", s: "github" },
+        { n: "VS Code", s: "visualstudiocode" },
+        { n: "Vercel", s: "vercel" },
+        { n: "Render" },
+        { n: "Jupyter Notebook", s: "jupyter" },
+        { n: "Microsoft Fabric — introductory familiarity / currently exploring" },
+      ],
+    },
+  ],
+  interests: [
+    "Data engineering and SQL",
+    "Backend systems and REST APIs",
+    "Feature engineering and analytics",
+    "Recommendation and ranking systems",
+    "Geospatial intelligence",
+    "Applied AI and retrieval workflows",
+    "Docker and application deployment",
+    "Software architecture and system design",
+    "Testing, reliability and maintainability",
+  ],
+  focus: [
+    "Building production-minded applications.",
+    "Strengthening software engineering fundamentals.",
+    "Developing deeper expertise in data and applied AI.",
+    "Improving testing, reliability and system design.",
+    "Exploring data, backend and AI engineering opportunities.",
+  ],
+  projects: [
+    {
+      name: "NIVAAS",
+      label: "Urban Intelligence & Locality Recommendation Platform",
+      description: "A platform for evaluating rental localities in Bengaluru using rental analytics, engineered locality features, geospatial data and recommendation logic.",
+      technologies: ["Python", "FastAPI", "Supabase PostgreSQL", "PostGIS", "React", "TypeScript", "Vite", "Zustand", "Axios", "TanStack Router", "scikit-learn", "NumPy", "Docker", "Vercel", "Render"],
+      link: "https://nivaas-nivaas1.vercel.app/",
+    },
+    {
+      name: "ANSME",
+      label: "Product Intelligence & Comparison Engine",
+      description: "An application that extracts product information from URLs and compares alternatives using structured analysis, custom scoring, price and rating evaluation, and deterministic verdicts.",
+      technologies: ["Python", "FastAPI", "PostgreSQL", "SQLAlchemy", "Pydantic", "BeautifulSoup", "Trafilatura", "React", "TypeScript", "Vite", "Docker"],
+      link: "https://ansme-five.vercel.app/",
+    },
+    {
+      name: "Mini RAG Bot",
+      label: "Local Document Question-Answering Application",
+      description: "A local document question-answering application using retrieval-augmented generation.",
+      technologies: ["Python", "Streamlit", "Sentence Transformers", "FAISS", "Ollama", "Llama 3", "LangChain"],
+      link: null,
+    },
+  ],
+  certs: {
+    completed: [
+      { name: "Data Scientist Associate", provider: "DataCamp", url: "https://www.datacamp.com/certificate/DSA0012072165568" },
+      { name: "Programming in Python", provider: "Meta", url: "https://www.coursera.org/account/accomplishments/verify/0UYEMJI3ZO9N" },
+      { name: "Python for Data Analysis: Pandas & NumPy", provider: "Coursera Project Network", url: "https://www.coursera.org/account/accomplishments/verify/DKNQB6ZQLCY3" },
+      { name: "Introduction to Data Analytics on Google Cloud", provider: "Google Cloud", url: "https://www.coursera.org/account/accomplishments/records/RHIPXBPHR48H" },
+      { name: "Database and SQL", provider: "Infosys Springboard", url: "https://infyspringboard.onwingspan.com/public-assets/infosysheadstart/cert/lex_auth_013742013179420672150_shared/1-ce70d4ae-b814-485f-8ee9-a192030dcdbd.pdf" },
+    ],
+    inProgress: ["Mathematics for Machine Learning", "Machine Learning Specialization"],
+    familiar: ["Generative AI — DeepLearning.AI", "Data systems & pipelines — concepts and tools"],
+  },
+};
+
+export const WISPR = {
+  heading: "Building This With My Voice",
+  subtitle: "A real build log of how I used Wispr Flow to create this portfolio — from first idea to final result.",
+  spoken:
+    "Create a personal portfolio that shows my journey, projects and interests. I want it to feel personal, warm and different from a traditional developer portfolio.",
+  spokenDuration: "0:28",
+  output:
+    "Create a personal portfolio that shows my journey, projects, and interests. I want it to feel personal, warm, and different from a traditional developer portfolio.",
+  outputCaption: "Clean, structured text, ready for Emergent.",
+  correction: "Too generic. Make it more personal, and less template-like.",
+  cycleCaption: "From first output to a more intentional result.",
+  logDisclaimer: "Illustrative build log — a real Wispr Flow recording can replace this example.",
+  rightTitle: ["Everyday Moments,", "Smoother with Voice"],
+  demoHeadline: "Some messages are too long to type. Not too long to say.",
+  demoCopy: "Speak naturally. Turn your thoughts into editable text, right where you're already writing.",
+  demoMessage:
+    "I understand that you've been busy, but I wish you had told me earlier. I was waiting for your reply, and I just wanted to know what was happening.",
+  disclaimer: "Illustrative product experience — not an official WhatsApp integration or product screenshot.",
+  useCases: [
+    { icon: "lightbulb", title: "Capture an Idea", desc: "Before it slips away." },
+    { icon: "mail", title: "Write an Email", desc: "Speak, edit, send." },
+    { icon: "sparkles", title: "AI Prompts", desc: "Dictate detailed instructions." },
+    { icon: "languages", title: "Multilingual", desc: "English, Hindi & Hinglish." },
+  ],
+  chat: [
+    { who: "in", text: "Hi Zaiba! I came across your portfolio and was impressed by your projects. Are you currently open to opportunities?" },
+    { who: "out", text: "Hi! Yes, absolutely. I'm exploring opportunities in software, data and applied AI." },
+    { who: "in", text: "That's great! Could you tell me a little about the projects you've been working on?" },
+  ],
+};
+
+export const PROJECTS = {
+  heading: "Things I've Built",
+  subtitle: "Projects, experiments and experiences that took me from learning to building — and keep me going.",
+  learned: {
+    title: "What I Learned",
+    items: ["Build → Iterate → Ship.", "Work with real constraints.", "Turn ambiguity into action.", "Keep learning always."],
+  },
+  items: [
+    {
+      id: "nivaas",
+      name: "NIVAAS",
+      sub: "Urban Intelligence & Locality Recommendation Platform",
+      desc: "NIVAAS helps users evaluate rental localities in Bengaluru through rental analytics, engineered locality features, geospatial data and recommendation logic.",
+      tech: ["Python", "FastAPI", "Supabase PostgreSQL", "PostGIS", "React", "TypeScript", "scikit-learn", "Docker"],
+      live: "https://nivaas-nivaas1.vercel.app/",
+      github: "https://github.com/zmuskan/NIVAAS-V1",
+    },
+    {
+      id: "ansme",
+      name: "ANSME",
+      sub: "Product Intelligence & Comparison Engine",
+      desc: "ANSME extracts product information from URLs and helps users compare alternatives through structured analysis, custom scoring, price and rating evaluation, and deterministic verdicts.",
+      tech: ["Python", "FastAPI", "PostgreSQL", "SQLAlchemy", "BeautifulSoup", "React", "TypeScript", "Docker"],
+      live: "https://ansme-five.vercel.app/",
+      github: "https://github.com/zmuskan/ANSME",
+    },
+    {
+      id: "pat",
+      name: "PAT Technologies",
+      sub: "Business Management & Analytics with Cloud Architecture Intern",
+      desc: "Worked on project monitoring, analytical tasks and business-management workflows, applying statistical methods and structured reporting.",
+      tech: ["RStudio", "SQL", "Statistics", "Reporting"],
+    },
+    {
+      id: "minirag",
+      name: "Mini RAG Bot",
+      sub: "Local Document Question-Answering Application",
+      desc: "A local retrieval-augmented generation application that lets users ask questions about supplied documents and retrieve relevant context.",
+      tech: ["Python", "Streamlit", "Sentence Transformers", "FAISS", "Ollama", "Llama 3", "LangChain"],
+      github: "https://github.com/zmuskan/mini-rag-bot",
+    },
+  ],
+};
+
+export const CONTACT = {
+  heading: "What's Next?",
+  copy:
+    "I want to build useful products, solve real problems and grow with a team that believes in making voice a natural, powerful way to think, write and create. I'd love to contribute to Wispr Flow from Bangalore.",
+  checklist: ["Bigger problems.", "Bolder ideas.", "A global impact.", "With the right team ♡."],
+  resume: "https://docs.google.com/document/d/1Zv7YKYuAnXlyhAE9DBlB-K1WTkmqAj-phK7Z91W1Nho/export?format=pdf",
+  links: [
+    { label: "LinkedIn", icon: "linkedin", url: "https://www.linkedin.com/in/zaiba-muskan-dm-983055388/" },
+    { label: "GitHub", icon: "github", url: "https://github.com/zmuskan" },
+    { label: "Email", icon: "mail", url: "mailto:zaibamuskan60@gmail.com", email: "zaibamuskan60@gmail.com" },
+    { label: "Instagram", icon: "instagram", url: "https://www.instagram.com/reel/CzBrSMcs-1v/?srtk=MXNsOGRoZG13OGZ2Zw==" },
+    { label: "Portfolio", icon: "globe", url: "https://sage-axolotl-20ebd5.netlify.app/" },
+  ],
+};
