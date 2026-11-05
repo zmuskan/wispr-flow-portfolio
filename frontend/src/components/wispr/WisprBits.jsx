@@ -158,6 +158,7 @@ export function WhatsAppDemo() {
     const message = incomingMessage.trim();
     if (!message) return;
 
+    const fallbackReply = "Bro, my brain is frozen currently 😭 but gang, check out the portfolio man!";
     setIsTyping(true);
     setSpeechError("");
 
@@ -171,20 +172,15 @@ export function WhatsAppDemo() {
         }),
       });
 
-      const payload = await response.json();
-      if (!response.ok) {
-        throw new Error(payload?.detail || "Assistant request failed.");
+      const payload = await response.json().catch(() => ({}));
+      if (!response.ok || !payload?.reply) {
+        throw new Error(payload?.detail || payload?.error || "Backend unavailable.");
       }
 
-      if (payload?.reply) {
-        addMessage(payload.reply, "them");
-      } else {
-        addMessage("I’m not able to answer that from this portfolio right now.", "them");
-      }
+      addMessage(payload.reply, "them");
     } catch (error) {
-      const messageText = error instanceof Error ? error.message : "The assistant is temporarily unavailable.";
-      addMessage("I’m sorry — I’m unable to answer that right now. Please try again in a moment.", "them");
-      setSpeechError(messageText);
+      addMessage(fallbackReply, "them");
+      setSpeechError("");
     } finally {
       setIsTyping(false);
     }
@@ -293,70 +289,80 @@ export function WhatsAppDemo() {
 
   return (
     <div className="whatsapp-demo relative shrink-0">
-      <div className="phone" data-testid="whatsapp-demo">
-        <div className="phone-screen">
-          <div className="wa-header">
-            <span className="wa-avatar">M</span>
-            <div className="flex-1">
-              <div className="wa-name">Muskan</div>
-              <div className="wa-status">online</div>
+      <div className="whatsapp-demo-shell" aria-label="Try the Wispr Flow chat demo">
+        <div className="try-me-callout" aria-label="Try me callout">
+          <span className="try-me-pill">TRY ME</span>
+          <svg className="try-me-arrow" viewBox="0 0 180 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M16 98C26 72, 57 42, 88 38C104 35, 117 44, 130 58C145 74, 150 82, 165 92" />
+            <circle cx="165" cy="92" r="5" />
+          </svg>
+        </div>
+
+        <div className="phone" data-testid="whatsapp-demo">
+          <div className="phone-screen">
+            <div className="wa-header">
+              <span className="wa-avatar">M</span>
+              <div className="flex-1">
+                <div className="wa-name">Muskan</div>
+                <div className="wa-status"><span className="wa-status-dot" aria-hidden="true" /> online</div>
+              </div>
+            </div>
+            <div className="wa-chat" ref={chatRef} data-testid="whatsapp-chat">
+              <span className="wa-date">Today</span>
+              {chat.map((message) => (
+                <div key={message.id} className={`wa-bubble ${message.from === "me" ? "out" : "in"}`}>
+                  {message.text}
+                  <span className="wa-time">{message.time}</span>
+                </div>
+              ))}
+              {isTyping && (
+                <div className="wa-bubble in typing" data-testid="whatsapp-typing-indicator">
+                  <MiniWave />
+                </div>
+              )}
+            </div>
+            <div className="wa-composer">
+              <textarea
+                className="wa-input"
+                data-testid="whatsapp-composer"
+                aria-label="Message composer"
+                placeholder="Type a message"
+                rows={2}
+                value={text}
+                onChange={(e) => setText(e.target.value)}
+                onKeyDown={(event) => {
+                  if (event.key === "Enter" && !event.shiftKey) {
+                    event.preventDefault();
+                    sendMessage();
+                  }
+                }}
+              />
+              <button
+                className="wa-round"
+                data-testid="whatsapp-mic-btn"
+                aria-label={dictating ? "Stop dictation" : "Start dictation"}
+                title={dictating ? "Stop dictation" : "Start dictation"}
+                onClick={onMic}
+              >
+                {dictating ? <Square size={13} fill="currentColor" /> : <Mic size={15} />}
+              </button>
+              <button
+                className="wa-round"
+                data-testid="whatsapp-send-btn"
+                aria-label="Send message"
+                disabled={!text.trim() || isTyping}
+                onClick={sendMessage}
+              >
+                <Send size={14} />
+              </button>
             </div>
           </div>
-          <div className="wa-chat" ref={chatRef} data-testid="whatsapp-chat">
-            <span className="wa-date">Today</span>
-            {chat.map((message) => (
-              <div key={message.id} className={`wa-bubble ${message.from === "me" ? "out" : "in"}`}>
-                {message.text}
-                <span className="wa-time">{message.time}</span>
-              </div>
-            ))}
-            {isTyping && (
-              <div className="wa-bubble in typing" data-testid="whatsapp-typing-indicator">
-                <MiniWave />
-              </div>
-            )}
-          </div>
-          <div className="wa-composer">
-            <textarea
-              className="wa-input"
-              data-testid="whatsapp-composer"
-              aria-label="Message composer"
-              placeholder="Type a message"
-              rows={2}
-              value={text}
-              onChange={(e) => setText(e.target.value)}
-              onKeyDown={(event) => {
-                if (event.key === "Enter" && !event.shiftKey) {
-                  event.preventDefault();
-                  sendMessage();
-                }
-              }}
-            />
-            <button
-              className="wa-round"
-              data-testid="whatsapp-mic-btn"
-              aria-label={dictating ? "Stop dictation" : "Start dictation"}
-              title={dictating ? "Stop dictation" : "Start dictation"}
-              onClick={onMic}
-            >
-              {dictating ? <Square size={13} fill="currentColor" /> : <Mic size={15} />}
-            </button>
-            <button
-              className="wa-round"
-              data-testid="whatsapp-send-btn"
-              aria-label="Send message"
-              disabled={!text.trim() || isTyping}
-              onClick={sendMessage}
-            >
-              <Send size={14} />
-            </button>
-          </div>
+          {dictating && (
+            <div className="wa-listening" data-testid="whatsapp-listening">
+              <MiniWave /> Listening…
+            </div>
+          )}
         </div>
-        {dictating && (
-          <div className="wa-listening" data-testid="whatsapp-listening">
-            <MiniWave /> Listening…
-          </div>
-        )}
       </div>
 
       <div className="wa-controls">

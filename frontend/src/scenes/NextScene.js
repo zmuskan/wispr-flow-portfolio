@@ -1,3 +1,5 @@
+import { useEffect, useRef } from "react";
+import { useReducedMotion } from "framer-motion";
 import { ArrowDown, Github, Globe, Instagram, Linkedin, Mail } from "lucide-react";
 import { CONTACT } from "@/data/content";
 import { MEDIA } from "@/data/media";
@@ -6,34 +8,115 @@ import { CheckTick, SketchUnderline, StarDoodle } from "@/components/scrapbook/S
 
 const LINK_ICONS = { linkedin: Linkedin, github: Github, mail: Mail, instagram: Instagram, globe: Globe };
 
+function RippleOverlay() {
+  const canvasRef = useRef(null);
+  const reduced = useReducedMotion();
+  const ripplesRef = useRef([]);
+
+  useEffect(() => {
+    if (reduced) return undefined;
+
+    const canvas = canvasRef.current;
+    const wrap = canvas?.parentElement;
+    if (!canvas || !wrap) return undefined;
+
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return undefined;
+
+    const resize = () => {
+      const rect = wrap.getBoundingClientRect();
+      const ratio = window.devicePixelRatio || 1;
+      canvas.width = Math.max(1, Math.floor(rect.width * ratio));
+      canvas.height = Math.max(1, Math.floor(rect.height * ratio));
+      ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+    };
+
+    const addRipple = (x, y) => {
+      ripplesRef.current.push({ x, y, radius: 8, alpha: 0.42, growth: 1.8 });
+      if (ripplesRef.current.length > 16) ripplesRef.current.shift();
+    };
+
+    const pointerMove = (event) => {
+      const rect = wrap.getBoundingClientRect();
+      addRipple(event.clientX - rect.left, event.clientY - rect.top);
+    };
+
+    const touchMove = (event) => {
+      const touch = event.touches?.[0];
+      if (!touch) return;
+      const rect = wrap.getBoundingClientRect();
+      addRipple(touch.clientX - rect.left, touch.clientY - rect.top);
+    };
+
+    resize();
+    window.addEventListener("resize", resize);
+    wrap.addEventListener("pointermove", pointerMove);
+    wrap.addEventListener("pointerdown", pointerMove);
+    wrap.addEventListener("touchstart", touchMove, { passive: true });
+    wrap.addEventListener("touchmove", touchMove, { passive: true });
+
+    let rafId;
+    const tick = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const next = [];
+      ripplesRef.current.forEach((ripple) => {
+        ripple.radius += ripple.growth;
+        ripple.alpha *= 0.94;
+        if (ripple.alpha > 0.03) {
+          next.push(ripple);
+          ctx.beginPath();
+          ctx.arc(ripple.x, ripple.y, ripple.radius, 0, Math.PI * 2);
+          ctx.strokeStyle = `rgba(200, 232, 255, ${ripple.alpha})`;
+          ctx.lineWidth = 1.6;
+          ctx.stroke();
+          ctx.beginPath();
+          ctx.arc(ripple.x, ripple.y, ripple.radius * 0.62, 0, Math.PI * 2);
+          ctx.strokeStyle = `rgba(255, 255, 255, ${ripple.alpha * 0.7})`;
+          ctx.lineWidth = 0.8;
+          ctx.stroke();
+        }
+      });
+      ripplesRef.current = next;
+      rafId = requestAnimationFrame(tick);
+    };
+
+    rafId = requestAnimationFrame(tick);
+
+    return () => {
+      cancelAnimationFrame(rafId);
+      window.removeEventListener("resize", resize);
+      wrap.removeEventListener("pointermove", pointerMove);
+      wrap.removeEventListener("pointerdown", pointerMove);
+      wrap.removeEventListener("touchstart", touchMove);
+      wrap.removeEventListener("touchmove", touchMove);
+    };
+  }, [reduced]);
+
+  return <canvas ref={canvasRef} className="next-ripple-layer" aria-hidden="true" />;
+}
+
 export default function NextScene() {
   const c = CONTACT;
   const emailLink = c.links.find((l) => l.email);
   const mailtoLink = emailLink?.url || "mailto:zaibamuskan60@gmail.com";
 
   return (
-    <div className="relative h-full w-full overflow-hidden" data-testid="next-content">
-      <div className="absolute inset-0 overflow-hidden">
+    <div className="next-scene" data-testid="next-content">
+      <div className="next-video-shell">
         <VideoCard
           entry={MEDIA.next.video}
-          className="absolute inset-0 w-full h-full"
+          className="next-video-card"
           objectPosition="center 38%"
           muted={true}
           autoplay={true}
           loop={true}
           playsInline={true}
         />
+        <RippleOverlay />
       </div>
-      <div
-        className="absolute inset-0"
-        aria-hidden
-        style={{
-          background:
-            "linear-gradient(90deg, rgba(20,10,6,0.68) 0%, rgba(20,10,6,0.22) 40%, rgba(20,10,6,0.08) 58%, rgba(20,10,6,0.55) 100%), linear-gradient(rgba(20,10,6,0.2), rgba(20,10,6,0.4))",
-        }}
-      />
+      <div className="next-scene-overlay" aria-hidden />
 
-      <div className="relative z-10 h-full max-w-[1500px] mx-auto px-7 sm:px-12 xl:px-20 pb-16 pt-3 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+      <div className="next-scene-content">
         <ul className="space-y-2.5 lg:pb-10" data-testid="next-checklist">
           {c.checklist.map((item) => (
             <li key={item} className="flex items-center gap-2.5 t-hand text-[clamp(18px,1.7vw,23px)] leading-none text-cream drop-shadow-[0_1px_4px_rgba(0,0,0,0.5)]">

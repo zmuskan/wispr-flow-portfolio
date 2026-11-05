@@ -14,6 +14,30 @@ function Placeholder({ label }) {
   );
 }
 
+export function WisprFloatingEasterEgg() {
+  const [auntyOpen, setAuntyOpen] = useState(false);
+
+  return (
+    <button
+      type="button"
+      className={`aunty-easter-card paper ${auntyOpen ? "is-open" : ""}`}
+      onClick={() => setAuntyOpen((open) => !open)}
+      aria-expanded={auntyOpen}
+      aria-label={auntyOpen ? "Hide the aunty gif card" : "Reveal the aunty gif card"}
+    >
+      <span className="aunty-easter-tape" aria-hidden="true" />
+      <div className="aunty-easter-head">
+        <span className="aunty-easter-title">CLICK AT YOUR OWN RISK 👀</span>
+        <span className="aunty-easter-subtitle">ik this doesn't belong here but I find it funny 😭</span>
+      </div>
+      <div className={`aunty-easter-preview ${auntyOpen ? "is-open" : ""}`}>
+        <img src="/assets/images/auntyvid.gif" alt="Aunty gif preview" className="aunty-easter-gif" />
+      </div>
+      {auntyOpen && <div className="aunty-easter-caption">I swear this woman makes my day 😭</div>}
+    </button>
+  );
+}
+
 export default function WisprScene() {
   const [replayKey, setReplayKey] = useState(0);
   const w = WISPR;

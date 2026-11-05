@@ -58,7 +58,12 @@ function StoryCard({ card, index }) {
   }
 
   return (
-    <PaperCard rot={ROTS[index]} tapeSmall={index % 2 === 0} tapeTone={index % 2 === 0 ? "pink" : "cream"} className="p-2.5 pt-3 flex flex-col">
+    <PaperCard
+      rot={ROTS[index]}
+      tapeSmall={index % 2 === 0}
+      tapeTone={index % 2 === 0 ? "pink" : "cream"}
+      className={`p-2.5 pt-3 flex flex-col ${id === "data" ? "story-card story-card--featured" : "story-card"}`}
+    >
       {media}
       {id === "cpa" && <CpaExtras />}
       <h3 className="t-play font-bold text-[14.5px] leading-tight mt-2">{title}</h3>

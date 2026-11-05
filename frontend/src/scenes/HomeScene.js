@@ -2,7 +2,8 @@ import { ArrowDown } from "lucide-react";
 import { HOME } from "@/data/content";
 import { BG_TEXTURE } from "@/data/media";
 import { VideoCard } from "@/components/media/MediaBits";
-import { HandwrittenNote, SketchUnderline, Tape } from "@/components/scrapbook/Scrapbook";
+import RoundSecretScroll from "../components/scrapbook/RoundSecretScroll";
+import { SketchUnderline, Tape } from "@/components/scrapbook/Scrapbook";
 
 export default function HomeScene({ goTo }) {
   const personalName = "ZAIBA MUSKAN D.M.";
@@ -56,7 +57,7 @@ export default function HomeScene({ goTo }) {
       </div>
 
       <div className="lg:w-[272px] w-full max-w-[330px] lg:max-w-none shrink-0">
-        <HandwrittenNote title={HOME.note.title} items={HOME.note.items} heart rot={1.8} tapeTone="pink" testid="on-my-mind-note" />
+        <RoundSecretScroll />
       </div>
     </div>
   );

@@ -1,0 +1,46 @@
+.walking-girl-cursor {
+  position: fixed;
+  z-index: 99999;
+  top: 0;
+  left: 0;
+  width: 52px;
+  height: 104px;
+  pointer-events: none;
+  opacity: 0;
+  will-change: transform;
+  transition: opacity .18s ease;
+  transform-origin: 50% 80%;
+}
+.walking-girl-cursor--visible { opacity: 1; }
+.walking-girl-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  user-select: none;
+  filter: drop-shadow(0 3px 3px rgba(30, 15, 12, .22));
+}
+.walking-girl-svg .walking-state {
+  animation-play-state: paused;
+}
+.walking-girl-cursor.walking .walking-girl-svg .walking-state {
+  animation-play-state: running;
+}
+.walking-girl-svg .leg-left { transform-box: fill-box; transform-origin: 50% 8%; animation: leftStep .48s ease-in-out infinite alternate; }
+.walking-girl-svg .leg-right { transform-box: fill-box; transform-origin: 50% 8%; animation: rightStep .48s ease-in-out infinite alternate; }
+.walking-girl-svg .arm-left { transform-box: fill-box; transform-origin: 50% 8%; animation: leftArm .48s ease-in-out infinite alternate; }
+.walking-girl-svg .arm-right { transform-box: fill-box; transform-origin: 50% 8%; animation: rightArm .48s ease-in-out infinite alternate; }
+.walking-girl-svg .skirt { transform-box: fill-box; transform-origin: 50% 10%; animation: skirtSway .48s ease-in-out infinite alternate; }
+.walking-girl-svg .kurta { transform-box: fill-box; transform-origin: 50% 10%; animation: bodyBounce .48s ease-in-out infinite alternate; }
+.walking-girl-svg .dupatta { transform-box: fill-box; transform-origin: 50% 10%; animation: dupattaSway .7s ease-in-out infinite alternate; }
+@keyframes leftStep { from { transform: rotate(13deg); } to { transform: rotate(-13deg); } }
+@keyframes rightStep { from { transform: rotate(-13deg); } to { transform: rotate(13deg); } }
+@keyframes leftArm { from { transform: rotate(-9deg); } to { transform: rotate(9deg); } }
+@keyframes rightArm { from { transform: rotate(9deg); } to { transform: rotate(-9deg); } }
+@keyframes skirtSway { from { transform: rotate(-1.8deg) translateY(0); } to { transform: rotate(1.8deg) translateY(2px); } }
+@keyframes bodyBounce { from { transform: translateY(0); } to { transform: translateY(-2px); } }
+@keyframes dupattaSway { from { transform: rotate(-1deg); } to { transform: rotate(1deg); } }
+
+@media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .walking-girl-cursor { display: none !important; }
+}

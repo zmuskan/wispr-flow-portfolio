@@ -1,4 +1,5 @@
 import { Camera, Clapperboard, MonitorPlay } from "lucide-react";
+import React, { useState } from 'react';
 
 export function Tape({ tone = "pink", small = false, style, className = "" }) {
   return <span aria-hidden className={`tape tape--${tone} ${small ? "tape--sm" : ""} ${className}`} style={style} />;
@@ -68,19 +69,57 @@ export function ArrowDoodle({ className = "", flip = false }) {
   );
 }
 
-export function HandwrittenNote({ title, items, heart = false, rot = 1.5, tapeTone = "cream", className = "", testid }) {
+export function HandwrittenNote({
+  title,
+  items,
+  heart = false,
+  rot = 1.5,
+  tapeTone = "cream",
+  className = "",
+  testid,
+  interactive = false,
+  closedLabel = "DON'T OPEN ME",
+  revealText = "Ah mann... u really opened it 😭",
+}) {
+  const [isOpen, setIsOpen] = useState(false);
+  const extraGoal = items[items.length - 1];
+
   return (
-    <PaperCard rot={rot} tapeTone={tapeTone} className={`p-5 pt-6 ${className}`} hover={false}>
+    <PaperCard
+      rot={rot}
+      tapeTone={tapeTone}
+      className={`paper-note ${interactive ? "paper-note--scroll" : ""} ${isOpen ? "paper-note--open" : "paper-note--closed"} ${className}`}
+      hover={false}
+    >
+      {interactive && (
+        <button
+          type="button"
+          className="paper-note-toggle"
+          onClick={() => setIsOpen((open) => !open)}
+          aria-expanded={isOpen}
+          aria-label={isOpen ? "Close the hidden note" : "Open the hidden note"}
+        >
+          <span className="paper-note-label">{closedLabel}</span>
+        </button>
+      )}
       <h3 className="t-hand font-bold text-[24px] leading-none text-[var(--ink)]">{title}</h3>
       <ul className="mt-3 space-y-2">
         {items.map((item, i) => (
-          <li key={i} className="flex items-center gap-2.5 t-hand text-[17.5px] leading-none text-[var(--ink)]">
+          <li
+            key={i}
+            className={`paper-note-item flex items-center gap-2.5 t-hand text-[17.5px] leading-none text-[var(--ink)] ${interactive && item === extraGoal ? "paper-note-highlight" : ""}`}
+          >
             <CheckTick size={15} color="var(--ink)" />
             <span>{item}</span>
-            {heart && i === items.length - 1 && <HeartDoodle className="ml-0.5" />}
+            {heart && i === items.length - 1 && !interactive && <HeartDoodle className="ml-0.5" />}
           </li>
         ))}
       </ul>
+      {interactive && (
+        <div className={`paper-note-reveal ${isOpen ? "paper-note-reveal--open" : ""}`} aria-live="polite">
+          {isOpen && <p>{revealText}</p>}
+        </div>
+      )}
       {testid && <div data-testid={testid} hidden />}
     </PaperCard>
   );

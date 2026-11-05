@@ -13,6 +13,7 @@ export const HOME = {
       "Grow my skills.",
       "Make an impact.",
       "Be really successful.",
+      "Become famous & earn lots of money.",
     ],
   },
 };
@@ -231,7 +232,7 @@ export const WISPR = {
   demoHeadline: "Some messages are too long to type. Not too long to say.",
   demoCopy: "Speak naturally. Turn your thoughts into editable text, right where you're already writing.",
   demoMessage:
-    "I understand that you've been busy, but I wish you had told me earlier. I was waiting for your reply, and I just wanted to know what was happening.",
+    "Gang, check out the portfolio man. It's finally coming together.",
   disclaimer: "Illustrative product experience — not an official WhatsApp integration or product screenshot.",
   useCases: [
     { icon: "lightbulb", title: "Capture an Idea", desc: "Before it slips away." },
@@ -240,9 +241,11 @@ export const WISPR = {
     { icon: "languages", title: "Multilingual", desc: "English, Hindi & Hinglish." },
   ],
   chat: [
-    { who: "in", text: "Hi Zaiba! I came across your portfolio and was impressed by your projects. Are you currently open to opportunities?" },
-    { who: "out", text: "Hi! Yes, absolutely. I'm exploring opportunities in software, data and applied AI." },
-    { who: "in", text: "That's great! Could you tell me a little about the projects you've been working on?" },
+    { who: "in", text: "Hi" },
+    { who: "out", text: "Hello!" },
+    { who: "in", text: "Bro, I've been working on this portfolio for so long 😭" },
+    { who: "out", text: "I can tell! You've put a lot into it. What are you showing off first?" },
+    { who: "in", text: "Gang, check out the portfolio man. It's finally coming together." },
   ],
 };
 

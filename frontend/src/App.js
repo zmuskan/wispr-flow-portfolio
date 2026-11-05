@@ -2,12 +2,13 @@ import React, { useCallback, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import Navigation from "@/components/Navigation";
+import WalkingGirlCursor from "@/components/cursor/WalkingGirlCursor";
 import { SCENE_NAMES } from "@/data/content";
 import { MEDIA, BG_TEXTURE } from "@/data/media";
 import HomeScene from "@/scenes/HomeScene";
 import StoryScene from "@/scenes/StoryScene";
 import ToolkitScene from "@/scenes/ToolkitScene";
-import WisprScene from "@/scenes/WisprScene";
+import WisprScene, { WisprFloatingEasterEgg } from "@/scenes/WisprScene";
 import BuildScene from "@/scenes/BuildScene";
 import NextScene from "@/scenes/NextScene";
 
@@ -216,6 +217,8 @@ export default function App() {
       <div className="bg-texture" style={{ backgroundImage: `url(${BG_TEXTURE})` }} aria-hidden="true" />
       <div className="bg-vignette" aria-hidden="true" />
       <LeafBackground />
+      <WalkingGirlCursor />
+      {index === 3 && <WisprFloatingEasterEgg />}
       <Navigation index={index} goTo={goTo} />
 
       <main className="scene-viewport" data-testid="scene-viewport">
